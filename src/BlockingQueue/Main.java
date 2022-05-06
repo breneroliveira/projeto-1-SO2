@@ -20,7 +20,7 @@ public class Main {
         
         produtor1.start();
         consumidor1.start();
-        consumidor2.start(); // Teste
+        consumidor2.start(); // Teste 2
 ;
     }
     
