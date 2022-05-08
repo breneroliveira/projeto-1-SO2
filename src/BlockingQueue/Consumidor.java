@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  *
- * @author 20201PF.CC0033
+ * @author Brener e Bruno
  */
 
 public class Consumidor extends Thread {
@@ -21,24 +21,23 @@ public class Consumidor extends Thread {
     
     public void run() {
         int cont = 0;
-      while (true) {
-        try {
-            System.out.println("Fazendeiro " + nome + " esperando o produto na fazenda");
-            
-            this.produto = fazenda.take();
-            
-            System.out.println("Fazendeiro " + nome + " pegou o produto: " + produto);
-            
-            Consumidor.sleep(5000);
-            
-            System.out.println("Fazendeiro " + nome + " entregou o produto: " + produto);     
+        while (true) {
+            try {
+                System.out.println("Fazendeiro " + nome + " esperando o produto na fazenda");
+
+                this.produto = fazenda.take();
+
+                System.out.println("Fazendeiro " + nome + " pegou o produto: " + produto);
+
+                Consumidor.sleep(5000);
+
+                System.out.println("Fazendeiro " + nome + " entregou o produto: " + produto);     
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            cont++;
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        cont++;
-      }
         //System.exit(0);
-    }
-    
+    }   
 }

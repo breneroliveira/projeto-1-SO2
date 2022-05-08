@@ -6,7 +6,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  *
- * @author 20201PF.CC0033
+ * @author Brener e Bruno
  */
 
 public class Main {
@@ -20,8 +20,6 @@ public class Main {
         
         produtor1.start();
         consumidor1.start();
-        consumidor2.start(); // Teste 2
-;
-    }
-    
+        consumidor2.start();
+    }   
 }
