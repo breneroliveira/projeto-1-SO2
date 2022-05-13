@@ -6,7 +6,9 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  *
- * @author 20201PF.CC0033
+ * @author Brener Augusto de Oliveira
+ * @author Bruno Butka
+ * 
  */
 
 public class Main {
@@ -25,7 +27,5 @@ public class Main {
         consumidor1.start();
         consumidor2.start();
         consumidor3.start();
-
-    }
-    
+    }   
 }

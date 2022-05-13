@@ -5,11 +5,16 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  *
- * @author 20201PF.CC0033
+ * @author Brener Augusto de Oliveira
+ * @author Bruno Butka
+ * 
  */
 
 public class Produtor extends Thread {
     
+    /**
+    * Estrutura privada que armazena os itens inserios pela classe Produtor.
+    */
     private final BlockingQueue<String> fazenda;
     private final String produto;
     private final String nome;
@@ -26,27 +31,24 @@ public class Produtor extends Thread {
     
     public void run() {
         int cont = 0;
-      while (cont < qtdExecucoes) {
-        try {
-            if(fazenda.size()==1){
-                System.out.println("A " + nome + " esperando a fazenda ter espaço");
+        while(cont < qtdExecucoes) {
+            try {
+                if(fazenda.size() == 1) {
+                    System.out.println("A " + nome + " esperando a fazenda ter espaço");
+                }
+                else {
+                    System.out.println("A " + nome + " produziu " + this.produto + " na fazenda");
+                    this.fazenda.put(produto);
+                }
+                Produtor.sleep(tempoEspera);
+
+                cont++;
             }
-            else{
-                System.out.println("A " + nome + " produziu " + this.produto + " na fazenda");
-                this.fazenda.put(produto);
+            catch (Exception e) {
+                e.printStackTrace();
             }
-            Produtor.sleep(tempoEspera);
-            
-            //System.out.println("A " + nome + " irá produzir novamente");
-            
             cont++;
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        cont++;
-      }
         System.exit(0);      
-    }
-    
+    }   
 }
