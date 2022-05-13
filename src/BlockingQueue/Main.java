@@ -5,10 +5,10 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- *
+ * Classe main, que faz a execução do código e a instância das classes utilizando threads.
+ * 
  * @author Brener Augusto de Oliveira
  * @author Bruno Butka
- * 
  */
 
 public class Main {
