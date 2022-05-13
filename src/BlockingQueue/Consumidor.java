@@ -1,17 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package BlockingQueue;
 
 import java.util.concurrent.BlockingQueue;
 
 /**
+ * 
+ * Consumidor é a entidade usada para fazer a retirada de itens da fila.
  *
- * @author 20201PF.CC0033
+ * @author Brener Augusto de Oliveira
+ * @author Bruno Butka
+ * 
  */
+
 public class Consumidor extends Thread {
     
+    /**
+    * Estrutura privada que armazena os itens inserios pela classe Produtor.
+    */
     private final BlockingQueue<String> fazenda;
     private String produto;
     private final String nome;
@@ -23,24 +28,22 @@ public class Consumidor extends Thread {
     
     public void run() {
         int cont = 0;
-      while (true) {
-        try {
-            System.out.println("Fazendeiro " + nome + " esperando o produto na fazenda");
-            
-            this.produto = fazenda.take();
-            
-            System.out.println("Fazendeiro " + nome + " pegou o produto: " + produto);
-            
-            Consumidor.sleep(5000);
-            
-            System.out.println("Fazendeiro " + nome + " entregou o produto: " + produto);     
+        while(true) {
+            try {
+                System.out.println("Fazendeiro " + nome + " esperando o produto na fazenda");
+
+                this.produto = fazenda.take();
+
+                System.out.println("Fazendeiro " + nome + " pegou o produto: " + produto);
+
+                Consumidor.sleep(5000);
+
+                System.out.println("Fazendeiro " + nome + " entregou o produto: " + produto);     
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+            cont++;
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        cont++;
-      }
         //System.exit(0);
-    }
-    
+    }   
 }
